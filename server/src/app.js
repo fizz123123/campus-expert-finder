@@ -1,11 +1,17 @@
 import cors from 'cors'
 import express from 'express'
 import database from './db/connection.js'
+import { ensureDatabaseReady } from './db/setup.js'
 import metaRouter from './routes/meta.js'
 import teachersRouter from './routes/teachers.js'
 import { HttpError } from './utils/http-error.js'
 
 const app = express()
+const databaseSetup = ensureDatabaseReady()
+
+if (databaseSetup.seeded) {
+  console.log('SQLite database initialized:', databaseSetup.counts)
+}
 
 app.use(
   cors({

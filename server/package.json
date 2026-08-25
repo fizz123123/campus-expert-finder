@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "db:seed": "node src/db/seed.js",
     "db:verify": "node src/db/verify.js",
-    "api:check": "node src/api-smoke-test.js"
+    "api:check": "node src/api-smoke-test.js",
+    "azure:check": "node src/azure-smoke-test.js"
   },
   "dependencies": {
     "better-sqlite3": "^13.0.3",
